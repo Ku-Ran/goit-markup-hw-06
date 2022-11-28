@@ -16,8 +16,8 @@
 	--icons-main-theme: #afb1b8;
 	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	--modal-border: rgba(0, 0, 0, 0.1);
-	--color-text-footer-form: rgba(255, 255, 255, 0.3);
-	--text-color-placeholder: rgba(117, 117, 117, 0.5);
+	--footer-form-text-color: rgba(255, 255, 255, 0.3);
+	--placeholder-text-color: rgba(117, 117, 117, 0.5);
 }
 
 .list {
@@ -83,8 +83,9 @@ img {
 /* ================== HEADER ================== */
 
 .page-header {
+	max-width: 1600px;
 	margin: auto;
-	/* border: 1px solid #ececec; */
+	border-bottom: 1px solid #ececec;
 	background-color: var(--primary-text-color-theme-dark);
 }
 
@@ -209,7 +210,6 @@ img {
 .contact-list-header {
 	display: flex;
 	align-items: center;
-	/* justify-content: flex-end; */
 	margin-left: auto;
 }
 
@@ -237,10 +237,7 @@ img {
 }
 
 .hero-title {
-	/* padding-right: 452px;
-	padding-left: 452px; */
 	margin-bottom: 30px;
-
 	color: var(--primary-text-color-theme-dark);
 	font-weight: 900;
 	font-size: 44px;
@@ -316,8 +313,6 @@ img {
 }
 
 .modal {
-	/* display: flex;
-	justify-content: center; */
 	position: absolute;
 	padding: 40px;
 	top: 50%;
@@ -351,13 +346,15 @@ img {
 	border-radius: 50%;
 }
 
+.button-close:hover,
+.button-close:focus {
+	fill: currentColor;
+	color: var(--accent-color);
+}
+
 /* ============== BUTTON STYLES =============== */
 
 /* ============== MODAL FORM ================== */
-
-.modal-form {
-	/* padding: 40px; */
-}
 
 .modal-form-text {
 	font-weight: 700;
@@ -376,9 +373,7 @@ img {
 
 .modal-form-label {
 	display: block;
-
 	margin-bottom: 4px;
-
 	font-weight: 400;
 	font-size: 12px;
 	line-height: 1.16;
@@ -392,12 +387,10 @@ img {
 
 .modal-form-field {
 	margin-bottom: 10px;
-
 	width: 448px;
 	height: 40px;
 	padding-left: 42px;
 	padding-right: 42px;
-
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
 	outline: 1px solid transparent;
@@ -413,7 +406,6 @@ img {
 	top: 37.5%;
 	left: 12px;
 	transform: translateY(-37.5%);
-
 	fill: var(--basic-text-color);
 
 	transition: fill 250ms var(--timing-function);
@@ -421,16 +413,13 @@ img {
 
 .modal-form-message {
 	resize: none;
-
 	width: 448px;
 	height: 120px;
-
 	padding-top: 12px;
 	padding-right: 16px;
 	padding-bottom: 12px;
 	padding-left: 16px;
 	margin-bottom: 20px;
-
 	border: 1px solid rgba(33, 33, 33, 0.2);
 	border-radius: 4px;
 	outline: 1px solid transparent;
@@ -442,7 +431,7 @@ img {
 }
 
 .modal-form-message::placeholder {
-	color: var(--text-color-placeholder);
+	color: var(--placeholder-text-color);
 }
 
 .modal-form-field:focus + .modal-form-icon {
@@ -450,15 +439,21 @@ img {
 }
 
 .modal-form-checkbox-group {
-	display: inline-block;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	margin-bottom: 30px;
 }
 
-.modal-form-checkbox-icon {
-	/* margin-left: -15px; */
+.modal-form-checkbox {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	position: absolute;
+}
+
+.modal-form-checkbox:focus + .modal-form-checkbox-icon {
+	border-color: var(--accent-color);
 }
 
 .uncheck {
@@ -468,6 +463,11 @@ img {
 
 .modal-form-checkbox:checked + .modal-form-checkbox-icon .uncheck {
 	opacity: 0;
+}
+
+.uncheck:focus {
+	fill: currentColor;
+	border-color: var(--accent-color);
 }
 
 .check {
@@ -481,14 +481,13 @@ img {
 
 .modal-form-checkbox-text {
 	display: flex;
-	/* justify-content: flex-start; */
 	align-items: center;
-	gap: 10px;
-
+	gap: 8px;
 	font-weight: 400;
-	line-height: 1.71;
-	color: var(--second-text-color);
-
+	font-size: 14px;
+	line-height: 1.7;
+	letter-spacing: 0.03em;
+	color: var(--secondary-text-color-theme-light);
 	user-select: none;
 }
 
@@ -502,12 +501,13 @@ img {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-
+	margin: 0;
+	right: 50%;
+	transform: translate(50%);
 	height: 50px;
 	width: 200px;
 	margin: 0;
 	padding: 0;
-
 	background: var(--accent-color);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
@@ -526,9 +526,6 @@ img {
 	background-color: #188ce8;
 }
 
-.visually-hidden {
-	opacity: 0;
-}
 /* ================= MODAL FORM =============== */
 
 /* ================ MAIN STUDIO ================*/
@@ -874,25 +871,17 @@ img {
 .footer-info {
 	display: flex;
 	align-items: baseline;
-	/* flex-direction: column; */
 }
 
 .logo-footer-box {
 	display: inline-block;
 	width: 231px;
 	margin-right: 70px;
-	/* display: flex;
-	align-items: baseline; */
 }
 
-.contact-list-item:not(:last-child) {
+.contact-list-footer-item:not(:last-child) {
 	margin-bottom: 9px;
 }
-
-/* .logo-blue {
-	margin-bottom: 20px;
-	margin-right: 156px;
-} */
 
 .logo-footer {
 	color: var(--primary-text-color-theme-dark);
@@ -910,7 +899,6 @@ img {
 .contacts-box {
 	display: flex;
 	margin-top: 20px;
-	/* align-items: flex-start; */
 }
 
 .contact-footer-list {
@@ -923,9 +911,6 @@ img {
 }
 
 .adress-list-link {
-	/* flex-direction: column;
-	margin-left: 0;
-	gap: 9px; */
 	color: var(--primary-text-color-theme-dark);
 	font-size: 14px;
 	line-height: 1.7;
@@ -961,7 +946,6 @@ img {
 .socials-footer {
 	display: flex;
 	padding-top: 20px;
-
 	gap: 10px;
 }
 
@@ -980,7 +964,6 @@ img {
 	border-radius: 50%;
 	color: var(--primary-text-color-theme-dark);
 	background-color: rgba(255, 255, 255, 0.1);
-
 	transition: background-color 250ms var(--timing-function);
 }
 
@@ -991,7 +974,6 @@ img {
 .socials-footer-link:hover,
 .socials-footer-link:focus {
 	background-color: var(--accent-color);
-	/* color: var(--primary-text-color-theme-dark); */
 }
 
 .footer-form {
@@ -1014,20 +996,17 @@ img {
 }
 .footer-form-border {
 	padding: 0;
+	margin-right: 12px;
 	width: 358px;
 	height: 50px;
-
-	margin-right: 12px;
-	border: 1px solid var(--color-text-footer-form);
+	border: 1px solid var(--footer-form-text-color);
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
 	border-radius: 4px;
-
 	background-color: var(--secondary-background-color);
-
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.25;
-	color: var(--color-text-footer-form);
+	color: var(--footer-form-text-color);
 	padding-left: 16px;
 }
 
@@ -1036,7 +1015,6 @@ img {
 	justify-content: center;
 	align-items: center;
 	gap: 10px;
-
 	width: 200px;
 	height: 50px;
 	padding: 0;
@@ -1047,7 +1025,6 @@ img {
 	line-height: 1.87;
 	letter-spacing: 0.06em;
 	color: var(--primary-text-color-theme-dark);
-
 	background-color: var(--accent-color);
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 	border-radius: 4px;
